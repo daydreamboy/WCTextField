@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'WCTextField_Example', :exclusive => true do
+  pod 'WCTextField', :path => '../'
+end
+
+target 'WCTextField_Tests', :exclusive => true do
+  pod 'WCTextField', :path => '../'
+
+  
+end
