@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "WCTextField"
   s.version          = "0.1.0"
-  s.summary          = "A short description of WCTextField."
+  s.summary          = "A light wrapper of UITextField."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,13 +17,14 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+  A light wrapper of UITextField providing some useful features.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/WCTextField"
+  s.homepage         = "https://github.com/daydreamboy/WCTextField"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "wesley_chen" => "wesley4chen@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/WCTextField.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/daydreamboy/WCTextField.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
