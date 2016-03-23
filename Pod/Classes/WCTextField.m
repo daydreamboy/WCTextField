@@ -16,6 +16,10 @@
 #define IOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending)
 #endif
 
+#ifndef IOS9_OR_LATER
+#define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] != NSOrderedAscending)
+#endif
+
 @interface WCTextField () <UIKeyInput>
 @property (nonatomic, strong) UIView *topSeparator;
 @property (nonatomic, strong) UIView *bottomSeparator;
@@ -103,6 +107,25 @@
 
 #pragma mark
 
+- (void)setText:(NSString *)text {
+    if (!IOS9_OR_LATER) {
+        [super setText:text];
+    }
+    else {
+        if (self.secureTextEntry) {
+            // on iOS 9 and secureTextEntry is YES
+            // http://stackoverflow.com/questions/20969451/uitextfield-securetextentry-bullets-with-a-custom-font
+            // http://stackoverflow.com/questions/19475918/change-uifont-in-secure-uitextfield-strange-behaviour-in-ios7
+            [super setSecureTextEntry:NO];
+            [super setText:text];
+            [super setSecureTextEntry:YES];
+        }
+        else {
+            [super setText:text];
+        }
+    }
+}
+
 - (void)setSecureTextEntry:(BOOL)secureTextEntry {
     if (!IOS7_OR_LATER) {
         // on iOS 6-
@@ -127,7 +150,7 @@
 
         // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
         if (IOS8_OR_LATER) {
-            // on iOS 8+
+            // on iOS 8/9
             NSString *savedText = self.text;
             self.text = @" ";
             self.text = savedText;
