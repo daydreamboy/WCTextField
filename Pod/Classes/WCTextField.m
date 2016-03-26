@@ -198,10 +198,47 @@
     [self bringSubviewToFront:_overlapView];
 }
 
+// @sa http://stackoverflow.com/questions/25371254/how-to-detect-delete-key-on-an-uitextfield-in-ios-8/25862878#25862878
+- (BOOL)keyboardInputShouldDelete:(UITextField *)textField {
+    BOOL shouldDelete = YES;
+    
+    // Check if UITextField has keyboardInputShouldDelete: method
+    if ([UITextField instancesRespondToSelector:_cmd]) {
+        // Get the method pointer of keyboardInputShouldDelete: method in UITextField
+        BOOL (*keyboardInputShouldDelete)(id, SEL, UITextField *) = (BOOL (*)(id, SEL, UITextField *))[UITextField instanceMethodForSelector:_cmd];
+        
+        if (keyboardInputShouldDelete) {
+            // Call keyboardInputShouldDelete: method of UITextField (not WCTextField), this will cause to call textField:shouldChangeCharactersInRange:replacementString: method
+            shouldDelete = keyboardInputShouldDelete(self, _cmd, textField);
+        }
+    }
+    
+    BOOL isIos8 = ([[[UIDevice currentDevice] systemVersion] intValue] == 8);
+    BOOL isLessThanIos8_3 = ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.3f);
+    
+    if (isIos8 && isLessThanIos8_3) {
+        [self deleteBackward];
+        
+        // avoid delete again by system
+        return NO;
+    }
+    
+    return shouldDelete;
+}
+
 #pragma mark - UIKeyInput
 
 // @sa http://stackoverflow.com/questions/1977934/detect-backspace-in-uitextfield
+//
+// @note Relation between deleteBackward and textField:shouldChangeCharactersInRange:replacementString:
+//  <br/> 1. Call this method always, when UITextField.text is empty
+//          Press `Delete` key will ignore the return value of textField:shouldChangeCharactersInRange:replacementString:
+//
+//  <br/> 2. Call this method respected to the return value of textField:shouldChangeCharactersInRange:replacementString:, when UITextField.text is NOT empty
+//          If YES, call deleteBackward
+//          If NO, not call deleteBackward
 - (void)deleteBackward {
+    // Call super method to delete
     [super deleteBackward];
 
     if ([self.proxy respondsToSelector:@selector(textFieldDidDeleteBackward:)]) {

@@ -12,7 +12,7 @@
 // preset when initialized
 #define bSecureTextEntry YES
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, WCTextFieldDelegate>
 @property (nonatomic, strong) WCTextField *textFieldCheckcode;
 @property (nonatomic, strong) UIButton *buttonCheckbox;
 @end
@@ -62,6 +62,7 @@
         textField.secureTextEntry = bSecureTextEntry;
         textField.delegate = self;
         textField.backgroundColor = [UIColor yellowColor];
+//        textField.text = @"123456";
         
         // Test properties
         textField.disablePaste = YES;
@@ -69,6 +70,7 @@
         textField.showBottomSeparator = YES;
         textField.showTopSeparator = YES;
         textField.topSeparatorColor = [UIColor redColor];
+        textField.proxy = self;
         
         _textFieldCheckcode = textField;
     }
@@ -91,6 +93,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
+    /*
     // issue on iOS 9, dot is the same size with UITextField
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     //    textField.secureTextEntry = NO;
@@ -98,6 +101,15 @@
     //    textField.secureTextEntry = YES;
     
     return NO;
+     */
+    
+    return YES;
+}
+
+#pragma mark - WCTextFieldDelegate
+
+- (void)textFieldDidDeleteBackward:(WCTextField *)textField {
+    NSLog(@"Did deleted: %@", textField.text);
 }
 
 @end

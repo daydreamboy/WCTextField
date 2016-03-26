@@ -14,9 +14,9 @@
 
 @optional
 /*!
- *  When press delete key even though the text is empty
+ *  When press delete key even though the text is empty or not
  *
- *  @param textField    the WCTextField instance
+ *  @param textField    the textField.text is modified after deletion
  */
 - (void)textFieldDidDeleteBackward:(WCTextField *)textField;
 
