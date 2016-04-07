@@ -127,38 +127,59 @@
 }
 
 - (void)setSecureTextEntry:(BOOL)secureTextEntry {
-    if (!IOS7_OR_LATER) {
-        // on iOS 6-
-        // http://stackoverflow.com/questions/6710019/uitextfield-securetextentry-works-going-from-yes-to-no-but-changing-back-to-y
-        // http://stackoverflow.com/questions/23782671/ios-uitextflied-securetextentry-not-working-on-ios-6-1
+    
+    if (IOS9_OR_LATER) {
+        // on iOS 9+
+        [super setSecureTextEntry:secureTextEntry];
+        
+        if ([self isFirstResponder]) {
+            // @sa http://stackoverflow.com/questions/19113566/uitextfield-font-size-changes-when-start-or-stop-entering-the-characters
+            // @sa http://stackoverflow.com/questions/28454870/uitextfield-changes-font-while-editing-in-swift-1-2-2-0 (issue: resign/become firstResponder will switch keyboard if there's a third-part keyboard)
+            if (!secureTextEntry) {
+                UIFont *font = self.font;
+                
+                self.font = nil;
+                self.font = font; // set original UIFont back when turn off secureTextEntry
+            }
+        }
+        
+        NSString *savedText = self.text;
+        self.text = @" ";
+        self.text = savedText;
+        savedText = nil;
+    }
+    else if (IOS8_OR_LATER) {
+        // on iOS 8
+        [super setSecureTextEntry:secureTextEntry];
+        
+        // @sa http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
+        NSString *savedText = self.text;
+        self.text = @" ";
+        self.text = savedText;
+        savedText = nil;
+    }
+    else if (IOS7_OR_LATER) {
+        // on iOS 7
+        [super setSecureTextEntry:secureTextEntry];
+        
+        self.text = self.text;
+    }
+    else {
+        // iOS 6-
+        // @sa http://stackoverflow.com/questions/6710019/uitextfield-securetextentry-works-going-from-yes-to-no-but-changing-back-to-y
+        // @sa http://stackoverflow.com/questions/23782671/ios-uitextflied-securetextentry-not-working-on-ios-6-1
         if (secureTextEntry) {
             BOOL isFocused = [self isFirstResponder];
             self.enabled = NO;
             [super setSecureTextEntry:YES];
             self.enabled = YES;
-
+            
             if (isFocused) {
                 [self becomeFirstResponder];
             }
         }
         else {
             [super setSecureTextEntry:NO];
-        }
-    }
-    else {
-        [super setSecureTextEntry:secureTextEntry];
-
-        // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
-        if (IOS8_OR_LATER) {
-            // on iOS 8/9
-            NSString *savedText = self.text;
-            self.text = @" ";
-            self.text = savedText;
-            savedText = nil;
-        }
-        else {
-            // on iOS 7
-            self.text = self.text;
         }
     }
 }

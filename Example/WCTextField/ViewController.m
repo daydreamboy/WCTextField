@@ -14,6 +14,7 @@
 
 @interface ViewController () <UITextFieldDelegate, WCTextFieldDelegate>
 @property (nonatomic, strong) WCTextField *textFieldCheckcode;
+@property (nonatomic, strong) UITextField *textFieldPlain;
 @property (nonatomic, strong) UIButton *buttonCheckbox;
 @end
 
@@ -25,6 +26,7 @@
 
     [self.view addSubview:self.textFieldCheckcode];
     [self.view addSubview:self.buttonCheckbox];
+    [self.view addSubview:self.textFieldPlain];
 }
 
 #pragma mark - Getters
@@ -34,7 +36,7 @@
         UIButton *checkboxButton = [[UIButton alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.textFieldCheckcode.frame) + 15, 0, 0)];
         checkboxButton.titleLabel.font = [UIFont systemFontOfSize:14];
         checkboxButton.selected = !bSecureTextEntry;
-        [checkboxButton setTitle:@"显示密码" forState:UIControlStateNormal];
+        [checkboxButton setTitle:@"Show/Hide password" forState:UIControlStateNormal];
         [checkboxButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [checkboxButton setImage:[UIImage imageNamed:@"login_checkbox_s"] forState:UIControlStateSelected];
         [checkboxButton setImage:[UIImage imageNamed:@"login_checkbox"] forState:UIControlStateNormal];
@@ -56,7 +58,7 @@
         textField.backgroundColor = [UIColor whiteColor];
         textField.font = [UIFont systemFontOfSize:17];
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        textField.placeholder = @"请输入验证码";
+        textField.placeholder = @"Type password here...";
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.secureTextEntry = bSecureTextEntry;
@@ -76,6 +78,26 @@
     }
     
     return _textFieldCheckcode;
+}
+
+- (UITextField *)textFieldPlain {
+    if (!_textFieldPlain) {
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 200, [[UIScreen mainScreen] bounds].size.width, 44)];
+        textField.leftViewMode = UITextFieldViewModeAlways;
+        textField.backgroundColor = [UIColor whiteColor];
+        textField.font = [UIFont systemFontOfSize:17];
+        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        textField.placeholder = @"Type text here...";
+        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.delegate = self;
+        textField.backgroundColor = [UIColor yellowColor];
+        
+        _textFieldPlain = textField;
+    }
+    
+    return _textFieldPlain;
 }
 
 #pragma mark - Actions
