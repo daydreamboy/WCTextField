@@ -191,7 +191,11 @@
         return NO;
     }
 
-    if (_disableCopyAndCut && (action == @selector(select:) || action == @selector(selectAll:))) {
+    if (_disableCopyAndCut && (
+           // actions for long press gesture
+            action == @selector(select:) || action == @selector(selectAll:)
+           // actions for double tap gesture
+            || @selector(copy:) || @selector(cut:))) {
         return NO;
     }
 
