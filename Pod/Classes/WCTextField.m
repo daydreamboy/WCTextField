@@ -251,6 +251,55 @@
     return shouldDelete;
 }
 
+/*!
+ *  <#Description#>
+ *
+ *  @sa http://torimaru.com/2014/12/preventing-text-selection-in-uitextview-with-auto-detection-on/
+ *  @sa http://stackoverflow.com/a/18345198/4794665
+ */
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (_disableSelectionWhenMultiTouch) {
+        // Check for gestures to prevent
+        if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+
+            // For Debug
+//            NSLog(@"%ld", ((UITapGestureRecognizer *)gestureRecognizer).numberOfTouchesRequired);
+//            NSLog(@"%ld", ((UITapGestureRecognizer *)gestureRecognizer).numberOfTouches);
+//            NSLog(@"%ld", ((UITapGestureRecognizer *)gestureRecognizer).numberOfTapsRequired);
+//            NSLog(@"---------------------------------");
+            
+            // Check for two more fingers tap at the same time
+            if (((UITapGestureRecognizer *)gestureRecognizer).numberOfTouchesRequired >= 2) {
+                return NO;
+            }
+            
+            if (((UITapGestureRecognizer *)gestureRecognizer).numberOfTouches >= 2) {
+                return NO;
+            }
+            
+            // Check for double tap and more
+            if (((UITapGestureRecognizer *)gestureRecognizer).numberOfTapsRequired >= 2) {
+                // Prevent the double tap and more (double tap in Simulator, two more taps in Device)
+                return NO;
+            }
+        }
+    }
+    
+    if (_disableShowMagnifier) {
+        if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
+            // For Debug
+//            NSLog(@"long press");
+            return NO;
+        }
+    }
+    
+    // For Debug
+//    NSLog(@"return YES");
+    
+    // Always anything that makes it here
+    return YES;
+}
+
 #pragma mark - UIKeyInput
 
 // @sa http://stackoverflow.com/questions/1977934/detect-backspace-in-uitextfield

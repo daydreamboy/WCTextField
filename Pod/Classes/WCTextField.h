@@ -62,14 +62,34 @@
  *  If YES, no 'Select & Select All' show, so no 'Cut & Copy' show
  *
  *  Default is NO.
+ *
+ *  @see UIResponderStandardEditActions protocol
  */
 @property (nonatomic, assign) BOOL disableCopyAndCut;
 /*!
  *  If YES, no 'Paste' show
  *
  *  Default is NO.
+ *
+ *  @see UIResponderStandardEditActions protocol
  */
 @property (nonatomic, assign) BOOL disablePaste;
+
+/*!
+ *  If YES, not selection when double tapping (select word) or two finger tapping (select all)
+ *
+ *  Default is NO
+ *
+ *  @warning selection is still possible when multi-touch (e.g. two fingers) tap quickly too many times.
+ */
+@property (nonatomic, assign) BOOL disableSelectionWhenMultiTouch;
+
+/*!
+ *  If YES, will not show magnifier
+ *
+ *  Default is NO
+ */
+@property (nonatomic, assign) BOOL disableShowMagnifier;
 
 /*!
  *  Should be selectable by user. If NO, user can't make WCTextField be focused

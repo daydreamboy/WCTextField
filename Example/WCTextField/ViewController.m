@@ -13,8 +13,8 @@
 #define bSecureTextEntry YES
 
 @interface ViewController () <UITextFieldDelegate, WCTextFieldDelegate>
-@property (nonatomic, strong) WCTextField *textFieldCheckcode;
-@property (nonatomic, strong) UITextField *textFieldPlain;
+@property (nonatomic, strong) UITextField *textFieldCheckcode;
+@property (nonatomic, strong) WCTextField *textFieldPlain;
 @property (nonatomic, strong) UIButton *buttonCheckbox;
 @end
 
@@ -49,10 +49,10 @@
     return _buttonCheckbox;
 }
 
-- (WCTextField *)textFieldCheckcode {
+- (UITextField *)textFieldCheckcode {
     
     if (!_textFieldCheckcode) {
-        WCTextField *textField = [[WCTextField alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, 44)];
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, 44)];
 
         textField.leftViewMode = UITextFieldViewModeAlways;
         textField.backgroundColor = [UIColor whiteColor];
@@ -67,12 +67,12 @@
 //        textField.text = @"123456";
         
         // Test properties
-        textField.disablePaste = YES;
-        textField.disableCopyAndCut = YES;
-        textField.showBottomSeparator = YES;
-        textField.showTopSeparator = YES;
-        textField.topSeparatorColor = [UIColor redColor];
-        textField.proxy = self;
+//        textField.disablePaste = YES;
+//        textField.disableCopyAndCut = YES;
+//        textField.showBottomSeparator = YES;
+//        textField.showTopSeparator = YES;
+//        textField.topSeparatorColor = [UIColor redColor];
+//        textField.proxy = self;
         
         _textFieldCheckcode = textField;
     }
@@ -83,7 +83,7 @@
 - (UITextField *)textFieldPlain {
     if (!_textFieldPlain) {
         
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 200, [[UIScreen mainScreen] bounds].size.width, 44)];
+        WCTextField *textField = [[WCTextField alloc] initWithFrame:CGRectMake(0, 200, [[UIScreen mainScreen] bounds].size.width, 44)];
         textField.leftViewMode = UITextFieldViewModeAlways;
         textField.backgroundColor = [UIColor whiteColor];
         textField.font = [UIFont systemFontOfSize:17];
@@ -93,6 +93,10 @@
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.delegate = self;
         textField.backgroundColor = [UIColor yellowColor];
+        
+        textField.disableSelectionWhenMultiTouch = YES;
+        textField.disableCopyAndCut = YES;
+        textField.disableShowMagnifier = NO;
         
         _textFieldPlain = textField;
     }
