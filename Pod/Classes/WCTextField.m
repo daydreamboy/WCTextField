@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) UIView *overlapView;
 
+@property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder;
+
 @end
 
 
@@ -138,8 +140,14 @@
             if (!secureTextEntry) {
                 UIFont *font = self.font;
                 
+                // issue 1: this will affect attributedPlaceholder's font
                 self.font = nil;
                 self.font = font; // set original UIFont back when turn off secureTextEntry
+                
+                // fix issue 1
+                if (self.savedAttributedPlaceholder) {
+                    self.attributedPlaceholder = [self.savedAttributedPlaceholder copy];
+                }
             }
         }
         
@@ -204,6 +212,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    if (!self.savedAttributedPlaceholder) {
+        self.savedAttributedPlaceholder = [self.attributedPlaceholder copy];
+    }
 
     if (!_topSeparator.superview && _showTopSeparator) {
         _topSeparator.frame = CGRectMake(_topSeparatorInset.left, 0, CGRectGetWidth(self.bounds) - _topSeparatorInset.left - _topSeparatorInset.right, _separatorHeight);

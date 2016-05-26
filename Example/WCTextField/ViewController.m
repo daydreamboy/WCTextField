@@ -13,7 +13,7 @@
 #define bSecureTextEntry YES
 
 @interface ViewController () <UITextFieldDelegate, WCTextFieldDelegate>
-@property (nonatomic, strong) UITextField *textFieldCheckcode;
+@property (nonatomic, strong) WCTextField *textFieldCheckcode;
 @property (nonatomic, strong) WCTextField *textFieldPlain;
 @property (nonatomic, strong) UIButton *buttonCheckbox;
 @end
@@ -52,7 +52,7 @@
 - (UITextField *)textFieldCheckcode {
     
     if (!_textFieldCheckcode) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, 44)];
+        WCTextField *textField = [[WCTextField alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, 44)];
 
         textField.leftViewMode = UITextFieldViewModeAlways;
         textField.backgroundColor = [UIColor whiteColor];
@@ -96,7 +96,7 @@
         
         textField.disableSelectionWhenMultiTouch = YES;
         textField.disableCopyAndCut = YES;
-        textField.disableShowMagnifier = NO;
+        textField.disableShowMagnifier = YES;
         
         _textFieldPlain = textField;
     }
