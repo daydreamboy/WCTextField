@@ -213,8 +213,11 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if (!self.savedAttributedPlaceholder) {
-        self.savedAttributedPlaceholder = [self.attributedPlaceholder copy];
+    if (!self.savedAttributedPlaceholder) {        
+        NSMutableAttributedString *attrStringM = [[NSMutableAttributedString alloc] initWithAttributedString:[self.attributedPlaceholder copy]];
+        [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
+        
+        self.savedAttributedPlaceholder = attrStringM;
     }
 
     if (!_topSeparator.superview && _showTopSeparator) {
