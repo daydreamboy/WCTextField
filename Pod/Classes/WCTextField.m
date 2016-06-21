@@ -218,6 +218,7 @@
         [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
         
         self.savedAttributedPlaceholder = attrStringM;
+        self.attributedPlaceholder = self.savedAttributedPlaceholder;
     }
 
     if (!_topSeparator.superview && _showTopSeparator) {
