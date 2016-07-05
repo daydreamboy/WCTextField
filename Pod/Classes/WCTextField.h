@@ -98,7 +98,7 @@
  */
 @property (nonatomic, assign) BOOL selectable;
 
-@property (nonatomic, assign) id<WCTextFieldDelegate> proxy;
+@property (nonatomic, weak) id<WCTextFieldDelegate> proxy;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
