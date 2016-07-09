@@ -236,28 +236,35 @@
     
     if (!self.savedAttributedPlaceholder) {
         
-        NSMutableAttributedString *attrStringM = [[NSMutableAttributedString alloc] initWithAttributedString:[self.originalAttributedPlaceholder copy]];
-        
-        // process 1: attributedPlaceholder should have same font
-        if (self.attributedPlaceholderUseFont) {
-            [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
+        if (!self.originalAttributedPlaceholder) {
+            self.originalAttributedPlaceholder = [self.attributedPlaceholder copy];
         }
         
-        // process 2: attributedPlaceholder should center vertically
-        if (self.centerAttributedPlaceholderVertically && !self.disableAttributedPlaceholderCenterVertically) {
-            UIFont *textFont = self.fontInOriginalAttributedPlaceholder ?: self.font;
+        // if placeholder or attributedPlaceholder not set, just ignore it
+        if (self.originalAttributedPlaceholder) {
+            NSMutableAttributedString *attrStringM = [[NSMutableAttributedString alloc] initWithAttributedString:[self.originalAttributedPlaceholder copy]];
             
-            // If placeholder size greater than text size, just ignore it
-            if (textFont.pointSize < self.font.pointSize) {
-                NSMutableParagraphStyle *style = [self.defaultTextAttributes[NSParagraphStyleAttributeName] mutableCopy];
-                style.minimumLineHeight = self.font.lineHeight - (self.font.lineHeight - textFont.lineHeight) / 2.0;
-                
-                [attrStringM addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrStringM.length)];
+            // process 1: attributedPlaceholder should have same font
+            if (self.attributedPlaceholderUseFont) {
+                [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
             }
+            
+            // process 2: attributedPlaceholder should center vertically
+            if (self.centerAttributedPlaceholderVertically && !self.disableAttributedPlaceholderCenterVertically) {
+                UIFont *textFont = self.fontInOriginalAttributedPlaceholder ?: self.font;
+                
+                // If placeholder size greater than text size, just ignore it
+                if (textFont.pointSize < self.font.pointSize) {
+                    NSMutableParagraphStyle *style = [self.defaultTextAttributes[NSParagraphStyleAttributeName] mutableCopy];
+                    style.minimumLineHeight = self.font.lineHeight - (self.font.lineHeight - textFont.lineHeight) / 2.0;
+                    
+                    [attrStringM addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrStringM.length)];
+                }
+            }
+            
+            self.savedAttributedPlaceholder = attrStringM;
+            self.attributedPlaceholder = self.savedAttributedPlaceholder;
         }
-        
-        self.savedAttributedPlaceholder = attrStringM;
-        self.attributedPlaceholder = self.savedAttributedPlaceholder;
     }
 
     if (!_topSeparator.superview && _showTopSeparator) {
