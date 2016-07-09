@@ -25,12 +25,6 @@
 @property (nonatomic, strong) UIView *bottomSeparator;
 @property (nonatomic, assign) CGFloat separatorHeight;
 
-@property (nonatomic, strong) UIView *leftViewWrappingView;
-@property (nonatomic, strong) UIView *rightViewWrappingView;
-// User's leftView and rightView
-@property (nonatomic, strong) UIView *wrappedLeftView;
-@property (nonatomic, strong) UIView *wrappedRightView;
-
 @property (nonatomic, strong) UIView *overlapView;
 
 @property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder;

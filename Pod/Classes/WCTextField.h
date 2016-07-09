@@ -101,7 +101,7 @@
 /*!
  *  If `attributedPlaceholder` should use `font` no matter how is their assignment order
  *      <br/> If YES, `attributedPlaceholder` has same font as `font` property
- *      <br/>If NO, `attributedPlaceholder` has different font from `font` property
+ *      <br/> If NO, `attributedPlaceholder` has different font from `font` property
  *
  *  Default is YES
  *  
