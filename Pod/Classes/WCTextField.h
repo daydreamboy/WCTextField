@@ -98,6 +98,24 @@
  */
 @property (nonatomic, assign) BOOL selectable;
 
+/*!
+ *  If `attributedPlaceholder` should use `font` no matter how is their assignment order
+ *      <br/> If YES, `attributedPlaceholder` has same font as `font` property
+ *      <br/>If NO, `attributedPlaceholder` has different font from `font` property
+ *
+ *  Default is YES
+ *  
+ *  @warning If `attributedPlaceholder` has not set NSFontAttributeName, will use self.font by system, and set this property to NO doesn't work.
+ */
+@property (nonatomic, assign) BOOL attributedPlaceholderUseFont;
+
+/*!
+ *  Disable attributedPlaceholder center vertically if YES
+ *
+ *  Default is NO
+ */
+@property (nonatomic, assign) BOOL disableAttributedPlaceholderCenterVertically;
+
 @property (nonatomic, weak) id<WCTextFieldDelegate> proxy;
 
 - (instancetype)initWithFrame:(CGRect)frame;

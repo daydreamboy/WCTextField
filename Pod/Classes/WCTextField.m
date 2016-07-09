@@ -34,6 +34,10 @@
 @property (nonatomic, strong) UIView *overlapView;
 
 @property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder;
+@property (nonatomic, strong) NSAttributedString *originalAttributedPlaceholder;
+
+@property (nonatomic, strong) UIFont *fontInOriginalAttributedPlaceholder;
+@property (nonatomic, assign) BOOL centerAttributedPlaceholderVertically; /**< Default is NO */
 
 @end
 
@@ -57,6 +61,7 @@
         }
 
         _selectable = YES;
+        _attributedPlaceholderUseFont = YES;
 
         _overlapView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _overlapView.userInteractionEnabled = !_selectable;
@@ -192,6 +197,28 @@
     }
 }
 
+- (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder {
+    [super setAttributedPlaceholder:attributedPlaceholder];
+    
+    if (!self.originalAttributedPlaceholder) {
+        self.originalAttributedPlaceholder = [attributedPlaceholder copy];
+        
+        if (!self.disableAttributedPlaceholderCenterVertically) {
+            NSRange range;
+            id style = [attributedPlaceholder attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:&range];
+            if (!style) {
+                // not found user's NSParagraphStyleAttributeName, so mark attributedPlaceholder should be centered vertically
+                self.centerAttributedPlaceholderVertically = YES;
+                
+                id font = [attributedPlaceholder attribute:NSFontAttributeName atIndex:0 effectiveRange:NULL];
+                if (font) {
+                    self.fontInOriginalAttributedPlaceholder = [font copy];
+                }
+            }
+        }
+    }
+}
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     // http://stackoverflow.com/questions/15745824/uitextfield-how-to-disable-the-paste
 
@@ -213,9 +240,27 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if (!self.savedAttributedPlaceholder) {        
-        NSMutableAttributedString *attrStringM = [[NSMutableAttributedString alloc] initWithAttributedString:[self.attributedPlaceholder copy]];
-        [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
+    if (!self.savedAttributedPlaceholder) {
+        
+        NSMutableAttributedString *attrStringM = [[NSMutableAttributedString alloc] initWithAttributedString:[self.originalAttributedPlaceholder copy]];
+        
+        // process 1: attributedPlaceholder should have same font
+        if (self.attributedPlaceholderUseFont) {
+            [attrStringM addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStringM.length)];
+        }
+        
+        // process 2: attributedPlaceholder should center vertically
+        if (self.centerAttributedPlaceholderVertically && !self.disableAttributedPlaceholderCenterVertically) {
+            UIFont *textFont = self.fontInOriginalAttributedPlaceholder ?: self.font;
+            
+            // If placeholder size greater than text size, just ignore it
+            if (textFont.pointSize < self.font.pointSize) {
+                NSMutableParagraphStyle *style = [self.defaultTextAttributes[NSParagraphStyleAttributeName] mutableCopy];
+                style.minimumLineHeight = self.font.lineHeight - (self.font.lineHeight - textFont.lineHeight) / 2.0;
+                
+                [attrStringM addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrStringM.length)];
+            }
+        }
         
         self.savedAttributedPlaceholder = attrStringM;
         self.attributedPlaceholder = self.savedAttributedPlaceholder;
