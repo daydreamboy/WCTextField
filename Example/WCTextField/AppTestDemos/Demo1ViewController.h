@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface ViewController : UIViewController
+@interface Demo1ViewController : UIViewController
 
 @end

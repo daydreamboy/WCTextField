@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2B4B26281C88134D00910733 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4B26271C88134D00910733 /* Launch Screen.storyboard */; };
+		2BC57D6F1D30DA680094953E /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D6E1D30DA680094953E /* Demo1ViewController.m */; };
+		2BC57D721D30DA6F0094953E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D711D30DA6F0094953E /* RootViewController.m */; };
+		2BC57D751D30E0B90094953E /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D741D30E0B90094953E /* Demo2ViewController.m */; };
+		2BC57D781D30E54A0094953E /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D771D30E54A0094953E /* Demo3ViewController.m */; };
+		2BC57D7B1D311E6F0094953E /* Demo4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */; };
 		40E111FF7B6B1E7461D8C126 /* libPods-WCTextField_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56783300513923603531197A /* libPods-WCTextField_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -15,7 +20,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AppDelegate.m */; };
-		6003F5A7195388D20070C39A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* ViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -38,6 +42,16 @@
 /* Begin PBXFileReference section */
 		0E5AE8FCD70445AF147A347C /* Pods-WCTextField_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2B4B26271C88134D00910733 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2BC57D6D1D30DA680094953E /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
+		2BC57D6E1D30DA680094953E /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
+		2BC57D701D30DA6F0094953E /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		2BC57D711D30DA6F0094953E /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		2BC57D731D30E0B90094953E /* Demo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
+		2BC57D741D30E0B90094953E /* Demo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
+		2BC57D761D30E54A0094953E /* Demo3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo3ViewController.h; sourceTree = "<group>"; };
+		2BC57D771D30E54A0094953E /* Demo3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo3ViewController.m; sourceTree = "<group>"; };
+		2BC57D791D311E6F0094953E /* Demo4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo4ViewController.h; sourceTree = "<group>"; };
+		2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4ViewController.m; sourceTree = "<group>"; };
 		3DE6CF5BAAEE31295FD91A2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		56783300513923603531197A /* libPods-WCTextField_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WCTextField_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		571C044629F29CE1F0CF2C09 /* Pods-WCTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,8 +65,6 @@
 		6003F59B195388D20070C39A /* WCTextField-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WCTextField-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* WCTextField_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCTextField_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -93,6 +105,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BC57D6C1D30DA680094953E /* AppTestDemos */ = {
+			isa = PBXGroup;
+			children = (
+				2BC57D6D1D30DA680094953E /* Demo1ViewController.h */,
+				2BC57D6E1D30DA680094953E /* Demo1ViewController.m */,
+				2BC57D731D30E0B90094953E /* Demo2ViewController.h */,
+				2BC57D741D30E0B90094953E /* Demo2ViewController.m */,
+				2BC57D761D30E54A0094953E /* Demo3ViewController.h */,
+				2BC57D771D30E54A0094953E /* Demo3ViewController.m */,
+				2BC57D791D311E6F0094953E /* Demo4ViewController.h */,
+				2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */,
+			);
+			path = AppTestDemos;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +159,9 @@
 			children = (
 				6003F59C195388D20070C39A /* AppDelegate.h */,
 				6003F59D195388D20070C39A /* AppDelegate.m */,
-				6003F5A5195388D20070C39A /* ViewController.h */,
-				6003F5A6195388D20070C39A /* ViewController.m */,
+				2BC57D701D30DA6F0094953E /* RootViewController.h */,
+				2BC57D711D30DA6F0094953E /* RootViewController.m */,
+				2BC57D6C1D30DA680094953E /* AppTestDemos */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -393,9 +421,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC57D751D30E0B90094953E /* Demo2ViewController.m in Sources */,
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* ViewController.m in Sources */,
+				2BC57D6F1D30DA680094953E /* Demo1ViewController.m in Sources */,
+				2BC57D7B1D311E6F0094953E /* Demo4ViewController.m in Sources */,
+				2BC57D781D30E54A0094953E /* Demo3ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				2BC57D721D30DA6F0094953E /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
