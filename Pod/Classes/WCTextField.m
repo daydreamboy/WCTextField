@@ -20,6 +20,11 @@
 #define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] != NSOrderedAscending)
 #endif
 
+@interface WCTextField (Addition)
+- (NSRange)selectedRange;
+- (UITextRange *)textRangeFromRange:(NSRange)range;
+@end
+
 @interface WCTextField () <UIKeyInput>
 @property (nonatomic, strong) UIView *topSeparator;
 @property (nonatomic, strong) UIView *bottomSeparator;
@@ -150,26 +155,38 @@
             }
         }
         
+        NSRange range = [self storeCursorPosition];
+        
         NSString *savedText = self.text;
         self.text = @" ";
         self.text = savedText;
         savedText = nil;
+        
+        [self restoreCursorPosition:range];
     }
     else if (IOS8_OR_LATER) {
         // on iOS 8
         [super setSecureTextEntry:secureTextEntry];
+        
+        NSRange range = [self storeCursorPosition];
         
         // @sa http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
         NSString *savedText = self.text;
         self.text = @" ";
         self.text = savedText;
         savedText = nil;
+        
+        [self restoreCursorPosition:range];
     }
     else if (IOS7_OR_LATER) {
         // on iOS 7
         [super setSecureTextEntry:secureTextEntry];
         
+        NSRange range = [self storeCursorPosition];
+        
         self.text = self.text;
+        
+        [self restoreCursorPosition:range];
     }
     else {
         // iOS 6-
@@ -362,6 +379,16 @@
     return YES;
 }
 
+#pragma mark - Manage Cursor
+
+- (NSRange)storeCursorPosition {
+    return self.selectedRange;
+}
+
+- (void)restoreCursorPosition:(NSRange)range {
+    self.selectedTextRange = [self textRangeFromRange:range];
+}
+
 #pragma mark - UIKeyInput
 
 // @sa http://stackoverflow.com/questions/1977934/detect-backspace-in-uitextfield
@@ -380,6 +407,40 @@
     if ([self.proxy respondsToSelector:@selector(textFieldDidDeleteBackward:)]) {
         [self.proxy textFieldDidDeleteBackward:self];
     }
+}
+
+@end
+
+@implementation WCTextField (Addition)
+
+// http://stackoverflow.com/questions/21149767/convert-selectedtextrange-uitextrange-to-nsrange
+- (NSRange)selectedRange {
+    UITextPosition *beginning = self.beginningOfDocument;
+    UITextRange *selectedRange = self.selectedTextRange;
+    
+    if (beginning && selectedRange) {
+        UITextPosition *selectionStart = selectedRange.start;
+        UITextPosition *selectionEnd = selectedRange.end;
+        
+        const NSInteger location = [self offsetFromPosition:beginning toPosition:selectionStart];
+        const NSInteger length = [self offsetFromPosition:selectionStart toPosition:selectionEnd];
+        
+        return NSMakeRange(location, length);
+    }
+    else {
+        return NSMakeRange(NSNotFound, 0);
+    }
+}
+
+- (UITextRange *)textRangeFromRange:(NSRange)range {
+    UITextPosition *beginning = self.beginningOfDocument;
+    
+    UITextPosition *start = [self positionFromPosition:beginning offset:range.location];
+    UITextPosition *end = [self positionFromPosition:start offset:range.length];
+    
+    UITextRange *textRange = [self textRangeFromPosition:start toPosition:end];
+    
+    return textRange;
 }
 
 @end
