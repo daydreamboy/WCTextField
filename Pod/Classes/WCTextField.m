@@ -272,6 +272,7 @@
                 
                 // If placeholder size greater than text size, just ignore it
                 if (textFont.pointSize < self.font.pointSize) {
+                    // http://stackoverflow.com/questions/28677519/vertically-centering-a-uitextfields-attributedplaceholder
                     NSMutableParagraphStyle *style = [self.defaultTextAttributes[NSParagraphStyleAttributeName] mutableCopy];
                     style.minimumLineHeight = self.font.lineHeight - (self.font.lineHeight - textFont.lineHeight) / 2.0;
                     
