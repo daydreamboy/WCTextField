@@ -20,6 +20,10 @@
 #define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] != NSOrderedAscending)
 #endif
 
+#ifndef IOS10_OR_LATER
+#define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"10.0" options:NSNumericSearch] != NSOrderedAscending)
+#endif
+
 @interface WCTextField (Addition)
 - (NSRange)selectedRange;
 - (UITextRange *)textRangeFromRange:(NSRange)range;
@@ -114,10 +118,10 @@
 #pragma mark
 
 - (void)setText:(NSString *)text {
-    if (!IOS9_OR_LATER) {
+    if (IOS10_OR_LATER) {
         [super setText:text];
     }
-    else {
+    else if (IOS9_OR_LATER) {
         if (self.secureTextEntry) {
             // on iOS 9 and secureTextEntry is YES
             // http://stackoverflow.com/questions/20969451/uitextfield-securetextentry-bullets-with-a-custom-font
@@ -129,6 +133,9 @@
         else {
             [super setText:text];
         }
+    }
+    else {
+        [super setText:text];
     }
 }
 

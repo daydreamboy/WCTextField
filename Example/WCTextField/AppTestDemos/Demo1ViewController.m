@@ -19,7 +19,7 @@
 #define bSecureTextEntry2 YES
 
 
-/// issues as following:
+/// issues on iOS 7-9 as following:
 // 1. when toggle `secureTextEntry` YES to NO and the cursor at trail, will show some unwanted spaces
 // 2. when `secureTextEntry` is NO, input some text, then toggle `secureTextEntry` to YES and back to NO, the text's font changed
 // 3. when `secureTextEntry` is YES, the cursor in the middle of text, and toggle `secureTextEntry` to NO, the cursor's position is not correct
