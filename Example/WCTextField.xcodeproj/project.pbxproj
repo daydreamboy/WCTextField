@@ -555,7 +555,7 @@
 				GCC_PREFIX_HEADER = "WCTextField/WCTextField-Prefix.pch";
 				INFOPLIST_FILE = "WCTextField/WCTextField-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wc.example.WCTextField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -575,7 +575,7 @@
 				GCC_PREFIX_HEADER = "WCTextField/WCTextField-Prefix.pch";
 				INFOPLIST_FILE = "WCTextField/WCTextField-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wc.example.WCTextField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
