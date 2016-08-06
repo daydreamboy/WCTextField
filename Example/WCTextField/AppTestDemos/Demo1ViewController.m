@@ -62,7 +62,7 @@
         textField.layer.cornerRadius = 3.0f;
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         textField.font = [UIFont systemFontOfSize:16.0f];
-        textField.placeholder = @"Type password here...";
+        textField.placeholder = @"a UITextField here...";
         textField.secureTextEntry = bSecureTextEntry1;
 
         _textField1 = textField;
@@ -102,7 +102,7 @@
         textField.layer.cornerRadius = 3.0f;
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         textField.font = [UIFont systemFontOfSize:16.0f];
-        textField.placeholder = @"Type password here...";
+        textField.placeholder = @"a WCTextField here...";
         textField.secureTextEntry = bSecureTextEntry2;
         
         _textField2 = textField;

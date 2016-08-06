@@ -22,20 +22,14 @@
 
 @end
 
-/*!
- *  a custom UITextField with the following features
- *  <br/> 1. set insets(paddings) for leftView and rightView
- *  <br/> 2. show/hide top and bottom separator, also set their horizontal insets and color
- *  <br/> 3. enable/disable Paste and Copy & Cut popover menu to avoid Paste and Copy & Cut
- */
 @interface WCTextField : UITextField
 
 /*!
- *  Top line color
+ *  Top seperator color
  */
 @property (nonatomic, strong) UIColor *topSeparatorColor;
 /**
- *  Bottom line color
+ *  Bottom seperator color
  */
 @property (nonatomic, strong) UIColor *bottomSeparatorColor;
 /*!
