@@ -22,6 +22,7 @@
 @property (nonatomic, strong) WCTextField *textFieldBox2;
 @property (nonatomic, strong) WCTextField *textFieldBox3;
 @property (nonatomic, strong) WCTextField *textFieldBox4;
+@property (nonatomic, strong) UIButton *buttonToggleShowCursor;
 @end
 
 @implementation Demo3ViewController
@@ -34,6 +35,7 @@
     [self.view addSubview:self.textFieldBox2];
     [self.view addSubview:self.textFieldBox3];
     [self.view addSubview:self.textFieldBox4];
+    [self.view addSubview:self.buttonToggleShowCursor];
     
     [self.textFieldBox1 becomeFirstResponder];
 }
@@ -160,6 +162,23 @@
     return _textFieldBox4;
 }
 
+- (UIButton *)buttonToggleShowCursor {
+    if (!_buttonToggleShowCursor) {
+        UIButton *checkboxButton = [[UIButton alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.textFieldBox1.frame) + 15, 0, 0)];
+        checkboxButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        [checkboxButton setTitle:@"Show/Hide Cursors" forState:UIControlStateNormal];
+        [checkboxButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [checkboxButton setImage:[UIImage imageNamed:@"login_checkbox_s"] forState:UIControlStateSelected];
+        [checkboxButton setImage:[UIImage imageNamed:@"login_checkbox"] forState:UIControlStateNormal];
+        [checkboxButton setImage:[UIImage imageNamed:@"login_checkbox"] forState:UIControlStateHighlighted];
+        [checkboxButton sizeToFit];
+        [checkboxButton addTarget:self action:@selector(buttonToggleShowCursorClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _buttonToggleShowCursor = checkboxButton;
+    }
+    
+    return _buttonToggleShowCursor;
+}
+
 #pragma mark - Actions
 
 - (void)textFieldBoxTextChanged:(id)sender {
@@ -197,6 +216,16 @@
             [self.textFieldBox3 becomeFirstResponder];
         }
     }
+}
+
+- (void)buttonToggleShowCursorClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    button.selected = !button.selected;
+    
+    self.textFieldBox1.cursorHidden = button.selected;
+    self.textFieldBox2.cursorHidden = button.selected;
+    self.textFieldBox3.cursorHidden = button.selected;
+    self.textFieldBox4.cursorHidden = button.selected;
 }
 
 #pragma mark - UITextFieldDelegate

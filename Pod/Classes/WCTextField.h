@@ -110,6 +110,13 @@
  */
 @property (nonatomic, assign) BOOL disableAttributedPlaceholderCenterVertically;
 
+/*!
+ *  Should show cursor
+ *
+ *  Default is NO
+ */
+@property (nonatomic, assign) BOOL cursorHidden;
+
 @property (nonatomic, weak) id<WCTextFieldDelegate> proxy;
 
 - (instancetype)initWithFrame:(CGRect)frame;

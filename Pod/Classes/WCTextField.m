@@ -115,7 +115,7 @@
     _overlapView.userInteractionEnabled = !selectable;
 }
 
-#pragma mark
+#pragma mark - Override Methods
 
 - (void)setText:(NSString *)text {
     if (IOS10_OR_LATER) {
@@ -339,7 +339,7 @@
 }
 
 /*!
- *  <#Description#>
+ *  handle inner gesture on UITextField
  *
  *  @sa http://torimaru.com/2014/12/preventing-text-selection-in-uitextview-with-auto-detection-on/
  *  @sa http://stackoverflow.com/a/18345198/4794665
@@ -385,6 +385,17 @@
     
     // Always anything that makes it here
     return YES;
+}
+
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
+    
+    // @see http://stackoverflow.com/questions/3699727/hide-the-cursor-of-an-uitextfield
+    if (self.cursorHidden) {
+        return CGRectZero;
+    }
+    else {
+        return [super caretRectForPosition:position];
+    }
 }
 
 #pragma mark - Manage Cursor
