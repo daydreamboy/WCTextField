@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'WCTextField_Example', :exclusive => true do
+target 'WCTextField_Example' do
   pod 'WCTextField', :path => '../'
 end
 
-target 'WCTextField_Tests', :exclusive => true do
+target 'WCTextField_Tests' do
   pod 'WCTextField', :path => '../'
 
   

@@ -13,7 +13,7 @@
 		2BC57D751D30E0B90094953E /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D741D30E0B90094953E /* Demo2ViewController.m */; };
 		2BC57D781D30E54A0094953E /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D771D30E54A0094953E /* Demo3ViewController.m */; };
 		2BC57D7B1D311E6F0094953E /* Demo4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */; };
-		40E111FF7B6B1E7461D8C126 /* libPods-WCTextField_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56783300513923603531197A /* libPods-WCTextField_Tests.a */; };
+		2EDC8422ED53C00BAB3E9DBB /* libPods-WCTextField_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CA217A97B2C600C4D544F4 /* libPods-WCTextField_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -26,7 +26,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		EC70EDF1FC5735AC308C6C95 /* libPods-WCTextField_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B459DB8A762FFA5B6BCD177 /* libPods-WCTextField_Example.a */; };
+		73019740BDDBA9B604816A6E /* libPods-WCTextField_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D052C340333F576372B2A /* libPods-WCTextField_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E5AE8FCD70445AF147A347C /* Pods-WCTextField_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		13FD5FD741490F560DBEB2BC /* Pods-WCTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2B4B26271C88134D00910733 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2BC57D6D1D30DA680094953E /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
 		2BC57D6E1D30DA680094953E /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
@@ -52,9 +52,8 @@
 		2BC57D771D30E54A0094953E /* Demo3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo3ViewController.m; sourceTree = "<group>"; };
 		2BC57D791D311E6F0094953E /* Demo4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo4ViewController.h; sourceTree = "<group>"; };
 		2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4ViewController.m; sourceTree = "<group>"; };
+		2C309AF51A868E5371AA98E3 /* Pods-WCTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DE6CF5BAAEE31295FD91A2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		56783300513923603531197A /* libPods-WCTextField_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WCTextField_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		571C044629F29CE1F0CF2C09 /* Pods-WCTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* WCTextField_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WCTextField_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,10 +71,11 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6B459DB8A762FFA5B6BCD177 /* libPods-WCTextField_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WCTextField_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0E6A238294E50E936E60CE /* Pods-WCTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8A52262616C630FC3EFBD960 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A2B6804EDF83FC5157833428 /* Pods-WCTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C88A4E6015D9DA2CD3EC06E0 /* Pods-WCTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9A5D052C340333F576372B2A /* libPods-WCTextField_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WCTextField_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE0BFA9940B5B2483C8F108 /* Pods-WCTextField_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D5CA217A97B2C600C4D544F4 /* libPods-WCTextField_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WCTextField_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE7E7EBDFC339C120AA88F4 /* WCTextField.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WCTextField.podspec; path = ../WCTextField.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				EC70EDF1FC5735AC308C6C95 /* libPods-WCTextField_Example.a in Frameworks */,
+				2EDC8422ED53C00BAB3E9DBB /* libPods-WCTextField_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,13 +98,24 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				40E111FF7B6B1E7461D8C126 /* libPods-WCTextField_Tests.a in Frameworks */,
+				73019740BDDBA9B604816A6E /* libPods-WCTextField_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252C4FD4B45970C0EEA960E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACE0BFA9940B5B2483C8F108 /* Pods-WCTextField_Example.debug.xcconfig */,
+				13FD5FD741490F560DBEB2BC /* Pods-WCTextField_Example.release.xcconfig */,
+				2C309AF51A868E5371AA98E3 /* Pods-WCTextField_Tests.debug.xcconfig */,
+				7E0E6A238294E50E936E60CE /* Pods-WCTextField_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2BC57D6C1D30DA680094953E /* AppTestDemos */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +139,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				F860A61963D94648D23D077C /* Pods */,
+				252C4FD4B45970C0EEA960E6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,8 +159,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				6B459DB8A762FFA5B6BCD177 /* libPods-WCTextField_Example.a */,
-				56783300513923603531197A /* libPods-WCTextField_Tests.a */,
+				D5CA217A97B2C600C4D544F4 /* libPods-WCTextField_Example.a */,
+				9A5D052C340333F576372B2A /* libPods-WCTextField_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,17 +221,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		F860A61963D94648D23D077C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0E5AE8FCD70445AF147A347C /* Pods-WCTextField_Example.debug.xcconfig */,
-				571C044629F29CE1F0CF2C09 /* Pods-WCTextField_Example.release.xcconfig */,
-				A2B6804EDF83FC5157833428 /* Pods-WCTextField_Tests.debug.xcconfig */,
-				C88A4E6015D9DA2CD3EC06E0 /* Pods-WCTextField_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,12 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "WCTextField_Example" */;
 			buildPhases = (
-				7D84AB8E33BC4EA7CA403ED4 /* Check Pods Manifest.lock */,
+				D6E21FDCDA1D03DE7B573C69 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				40B2615A7D8358A12F1B9152 /* Embed Pods Frameworks */,
-				74C09883ABA2FDC011B852FA /* Copy Pods Resources */,
+				EAEE6D9321B3BCFEA4200611 /* [CP] Embed Pods Frameworks */,
+				F945C9F91201DC6B493E60BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,12 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "WCTextField_Tests" */;
 			buildPhases = (
-				7A7C063C8A8B2D6147F82A39 /* Check Pods Manifest.lock */,
+				BBF09077F7B0CCE20A7060DC /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				702E177E5FA86A23C0C5C191 /* Embed Pods Frameworks */,
-				F544C4E0D50362444A31E83A /* Copy Pods Resources */,
+				B066362C2569C3F36AE914DB /* [CP] Embed Pods Frameworks */,
+				5BA2AB80DB74ED1DC1C3EF5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,29 +324,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		40B2615A7D8358A12F1B9152 /* Embed Pods Frameworks */ = {
+		5BA2AB80DB74ED1DC1C3EF5C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		702E177E5FA86A23C0C5C191 /* Embed Pods Frameworks */ = {
+		B066362C2569C3F36AE914DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,64 +354,64 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74C09883ABA2FDC011B852FA /* Copy Pods Resources */ = {
+		BBF09077F7B0CCE20A7060DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6E21FDCDA1D03DE7B573C69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EAEE6D9321B3BCFEA4200611 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F945C9F91201DC6B493E60BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A7C063C8A8B2D6147F82A39 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7D84AB8E33BC4EA7CA403ED4 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F544C4E0D50362444A31E83A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WCTextField_Tests/Pods-WCTextField_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -502,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -544,7 +544,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E5AE8FCD70445AF147A347C /* Pods-WCTextField_Example.debug.xcconfig */;
+			baseConfigurationReference = ACE0BFA9940B5B2483C8F108 /* Pods-WCTextField_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -564,7 +564,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 571C044629F29CE1F0CF2C09 /* Pods-WCTextField_Example.release.xcconfig */;
+			baseConfigurationReference = 13FD5FD741490F560DBEB2BC /* Pods-WCTextField_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -584,7 +584,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2B6804EDF83FC5157833428 /* Pods-WCTextField_Tests.debug.xcconfig */;
+			baseConfigurationReference = 2C309AF51A868E5371AA98E3 /* Pods-WCTextField_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -608,7 +608,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C88A4E6015D9DA2CD3EC06E0 /* Pods-WCTextField_Tests.release.xcconfig */;
+			baseConfigurationReference = 7E0E6A238294E50E936E60CE /* Pods-WCTextField_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

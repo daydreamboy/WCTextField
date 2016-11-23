@@ -1,5 +1,5 @@
 PODS:
-  - WCTextField (0.1.0)
+  - WCTextField (0.1.1)
 
 DEPENDENCIES:
   - WCTextField (from `../`)
@@ -9,6 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  WCTextField: b0d3618246a70b0874106b06f889a00fbe9deecb
+  WCTextField: 079c6901e8fd3f6cd7608be16d9ca16de69bf1d6
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: a473bed0ad3a9e31d6091f3b7712eb95ee6dc26b
+
+COCOAPODS: 1.1.1
