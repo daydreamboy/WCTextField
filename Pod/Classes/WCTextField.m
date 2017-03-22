@@ -36,8 +36,8 @@
 
 @property (nonatomic, strong) UIView *overlapView;
 
-@property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder;
-@property (nonatomic, strong) NSAttributedString *originalAttributedPlaceholder;
+@property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder; /**< actual attributed placeholder */
+@property (nonatomic, strong) NSAttributedString *originalAttributedPlaceholder; /**< user's attributed placeholder */
 
 @property (nonatomic, strong) UIFont *fontInOriginalAttributedPlaceholder;
 @property (nonatomic, assign) BOOL centerAttributedPlaceholderVertically; /**< Default is NO */
@@ -218,7 +218,7 @@
 - (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder {
     [super setAttributedPlaceholder:attributedPlaceholder];
     
-    if (!self.originalAttributedPlaceholder) {
+    if (!self.originalAttributedPlaceholder || ![self.originalAttributedPlaceholder isEqualToAttributedString:attributedPlaceholder]) {
         self.originalAttributedPlaceholder = [attributedPlaceholder copy];
         
         if (!self.disableAttributedPlaceholderCenterVertically) {
