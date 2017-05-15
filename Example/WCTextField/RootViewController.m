@@ -12,6 +12,7 @@
 #import "Demo2ViewController.h"
 #import "Demo3ViewController.h"
 #import "Demo4ViewController.h"
+#import "Demo5ViewController.h"
 
 @interface RootViewController ()
 @property (nonatomic, strong) NSArray *titles;
@@ -38,12 +39,14 @@
         @"WCTextField's features",
         @"WCTextField's protocols",
         @"attributedPlaceholder center vertically",
+        @"wrapped attributedPlaceholder",
     ];
     _classes = @[
         @"Demo1ViewController",
         @"Demo2ViewController",
         @"Demo3ViewController",
         @"Demo4ViewController",
+        @"Demo5ViewController",
     ];
 }
 

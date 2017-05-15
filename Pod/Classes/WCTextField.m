@@ -35,6 +35,7 @@
 @property (nonatomic, assign) CGFloat separatorHeight;
 
 @property (nonatomic, strong) UIView *overlapView;
+@property (nonatomic, strong) UILabel *wrappedAttributedLabel;
 
 @property (nonatomic, strong) NSAttributedString *savedAttributedPlaceholder; /**< actual attributed placeholder */
 @property (nonatomic, strong) NSAttributedString *originalAttributedPlaceholder; /**< user's attributed placeholder */
@@ -113,6 +114,17 @@
 - (void)setSelectable:(BOOL)selectable {
     _selectable = selectable;
     _overlapView.userInteractionEnabled = !selectable;
+}
+
+- (void)setWrappedAttributedPlaceholder:(NSAttributedString *)wrappedAttributedPlaceholder {
+    if (!_wrappedAttributedLabel) {
+        _wrappedAttributedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _wrappedAttributedLabel.numberOfLines = 0;
+        _wrappedAttributedLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _wrappedAttributedLabel.hidden = YES;
+        [self addSubview:_wrappedAttributedLabel];
+    }
+    _wrappedAttributedLabel.attributedText = wrappedAttributedPlaceholder;
 }
 
 #pragma mark - Override Methods
@@ -290,6 +302,13 @@
             self.savedAttributedPlaceholder = attrStringM;
             self.attributedPlaceholder = self.savedAttributedPlaceholder;
         }
+    }
+    
+    if ([_wrappedAttributedLabel superview]) {
+        CGFloat width = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.leftView.bounds) - CGRectGetWidth(self.rightView.bounds);
+        CGFloat height = CGRectGetHeight(self.bounds);
+        _wrappedAttributedLabel.frame = CGRectMake(CGRectGetWidth(self.leftView.bounds), 0, width, height);
+        _wrappedAttributedLabel.hidden = self.text.length ? YES : NO;
     }
 
     if (!_topSeparator.superview && _showTopSeparator) {

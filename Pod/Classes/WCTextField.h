@@ -117,6 +117,13 @@
  */
 @property (nonatomic, assign) BOOL cursorHidden;
 
+/**
+ A wrapped attributed placeholder
+ 
+ @warning Use this property, don't set attributedPlaceholder or placeholder
+ */
+@property (nonatomic, strong) NSAttributedString *wrappedAttributedPlaceholder;
+
 @property (nonatomic, weak) id<WCTextFieldDelegate> proxy;
 
 - (instancetype)initWithFrame:(CGRect)frame;

@@ -9,6 +9,48 @@
 #import "Demo1ViewController.h"
 #import <WCTextField/WCTextField.h>
 
+@interface NSString (Demo1ViewController)
+- (NSString *)spacedStringWithFormat:(NSString *)formatString;
+@end
+
+@implementation NSString (Demo1ViewController)
+
+- (NSString *)spacedStringWithFormat:(NSString *)formatString {
+    NSAssert(!formatString || [formatString isKindOfClass:[NSString class]], @"%@ is not a NSString", formatString);
+    
+    NSString *trimmedString = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSMutableString *stringM = [NSMutableString string];
+    NSUInteger i = 0;
+    NSUInteger j = 0;
+    for (i = 0; i < formatString.length && j < trimmedString.length; i++) {
+        
+        unichar char1 = [formatString characterAtIndex:i];
+        unichar char2 = [trimmedString characterAtIndex:j];
+        
+        if (char1 == ' ') {
+            [stringM appendString:@" "];
+        }
+        else {
+            [stringM appendFormat:@"%C", char2];
+            j++;
+        }
+    }
+    
+    for (; j < trimmedString.length; j++) {
+        [stringM appendFormat:@"%C", [trimmedString characterAtIndex:j]];
+    }
+    
+    return [stringM copy];
+}
+
+@end
+
+@interface UITextField (Addition)
+- (NSRange)selectedRange;
+- (UITextRange *)textRangeFromRange:(NSRange)range;
+@end
+
 #ifndef UICOLOR_RGB
 #define UICOLOR_RGB(color) [UIColor colorWithRed: (((color) >> 16) & 0xFF) / 255.0 green: (((color) >> 8) & 0xFF) / 255.0 blue: ((color) & 0xFF) / 255.0 alpha: 1.0]
 #endif
@@ -55,6 +97,7 @@
 
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 64 + 10, screenSize.width - 2 * 20, 30)];
         textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
         textField.autocorrectionType = UITextAutocapitalizationTypeNone;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -63,7 +106,7 @@
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         textField.font = [UIFont systemFontOfSize:16.0f];
         textField.placeholder = @"a UITextField here...";
-        textField.secureTextEntry = bSecureTextEntry1;
+        textField.secureTextEntry = NO;//bSecureTextEntry1;
 
         _textField1 = textField;
     }
@@ -153,6 +196,30 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
+    if (range.length == 0) {
+        // Inserting
+        NSLog(@"Inserting");
+        
+        NSString *showedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        NSString *spacedString = [self spacedStringWithString:showedString textField:textField range:range];
+        NSLog(@"spacedString: %@", spacedString);
+        
+//        self.textField1.text = spacedString;
+        
+        return NO;
+    }
+    else {
+        // Replacing or deleting
+        if (string.length == 0) {
+            // Deleting backward or deleting selection
+            NSLog(@"Deleting");
+        }
+        else {
+            // Replacing, excluding replace with @""
+            NSLog(@"Replacing");
+        }
+    }
+    
     /*
     // issue on iOS 9, dot is the same size with UITextField
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
@@ -166,10 +233,120 @@
     return YES;
 }
 
+- (void)spaceTextInTextField:(UITextField *)textField replacementRange:(NSRange)replacementRange replacementString:(NSString *)replacementString {
+    
+}
+
+- (NSString *)spacedStringWithString:(NSString *)string textField:(UITextField *)textField range:(NSRange)replacementRange {
+    NSString *trimmedString = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSArray *insertPostions = [NSArray array];
+    
+    if (trimmedString.length < 4) {
+        insertPostions = @[];
+    }
+    else if (trimmedString.length < 8) {
+        // insert one space
+        insertPostions = @[@(3)];
+    }
+    else if (trimmedString.length < 12) {
+        // insert two spaces
+        insertPostions = @[@(3), @(7)];
+    }
+    else {
+        // still insert two spaces
+        insertPostions = @[@(3), @(7), @(11)];
+    }
+    
+    NSString *str = [textField.text substringWithRange:NSMakeRange(0, replacementRange.location)];
+    NSUInteger numOfSpaces = [[str componentsSeparatedByString:@" "] count] - 1;
+    NSLog(@"numOfSpaces: %lu", numOfSpaces);
+    
+    NSMutableString *stringM = [[NSMutableString alloc] init];
+    NSRange savedRange = textField.selectedRange;
+    NSRange setRange = NSMakeRange(savedRange.location + 1, savedRange.length);
+    
+    NSUInteger currentLocation = 0;
+    for (NSUInteger i = 0; i < insertPostions.count + 1; i++) {
+        
+        NSRange range;
+        if (i == insertPostions.count) {
+            range = NSMakeRange(currentLocation, trimmedString.length - currentLocation);
+            
+            NSString *substring = [trimmedString substringWithRange:range];
+            [stringM appendString:substring];
+        }
+        else {
+            NSUInteger pos = [insertPostions[i] unsignedIntegerValue];
+            range = NSMakeRange(currentLocation, pos - currentLocation);
+            
+            NSString *substring = [trimmedString substringWithRange:range];
+            [stringM appendString:substring];
+            [stringM appendString:@" "];
+            
+            currentLocation = pos;
+        }
+    }
+    
+    if (textField.text.length == replacementRange.location) {
+        // Insert at trail
+        if ([insertPostions containsObject:@(trimmedString.length - 1)]) {
+            setRange = NSMakeRange(savedRange.location + 2, savedRange.length);
+        }
+    }
+    else {
+        // Insert at middle or head
+        NSString *nextCharacter = [textField.text substringWithRange:NSMakeRange(replacementRange.location, 1)];
+        if ([nextCharacter isEqualToString:@" "]) {
+            setRange = NSMakeRange(savedRange.location + 2, savedRange.length);
+        }
+
+    }
+    
+    textField.text = stringM;
+    textField.selectedTextRange = [textField textRangeFromRange:setRange];
+    
+    return [stringM copy];
+}
+
 #pragma mark - WCTextFieldDelegate
 
 - (void)textFieldDidDeleteBackward:(WCTextField *)textField {
     NSLog(@"Did deleted: %@", textField.text);
+}
+
+@end
+
+@implementation UITextField (Addition)
+
+// http://stackoverflow.com/questions/21149767/convert-selectedtextrange-uitextrange-to-nsrange
+- (NSRange)selectedRange {
+    UITextPosition *beginning = self.beginningOfDocument;
+    UITextRange *selectedRange = self.selectedTextRange;
+    
+    if (beginning && selectedRange) {
+        UITextPosition *selectionStart = selectedRange.start;
+        UITextPosition *selectionEnd = selectedRange.end;
+        
+        const NSInteger location = [self offsetFromPosition:beginning toPosition:selectionStart];
+        const NSInteger length = [self offsetFromPosition:selectionStart toPosition:selectionEnd];
+        
+        return NSMakeRange(location, length);
+    }
+    else {
+        return NSMakeRange(NSNotFound, 0);
+    }
+}
+
+- (UITextRange *)textRangeFromRange:(NSRange)range {
+    UITextPosition *beginning = self.beginningOfDocument;
+    
+    UITextPosition *start = [self positionFromPosition:beginning offset:range.location];
+    UITextPosition *end = [self positionFromPosition:start offset:range.length];
+    
+    UITextRange *textRange = [self textRangeFromPosition:start toPosition:end];
+    
+    return textRange;
 }
 
 @end

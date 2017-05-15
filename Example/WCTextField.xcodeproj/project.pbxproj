@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B4B26281C88134D00910733 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4B26271C88134D00910733 /* Launch Screen.storyboard */; };
+		2BBB5E111EC9D22D007298E5 /* Demo5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB5E101EC9D22D007298E5 /* Demo5ViewController.m */; };
 		2BC57D6F1D30DA680094953E /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D6E1D30DA680094953E /* Demo1ViewController.m */; };
 		2BC57D721D30DA6F0094953E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D711D30DA6F0094953E /* RootViewController.m */; };
 		2BC57D751D30E0B90094953E /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC57D741D30E0B90094953E /* Demo2ViewController.m */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		13FD5FD741490F560DBEB2BC /* Pods-WCTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WCTextField_Example/Pods-WCTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2B4B26271C88134D00910733 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2BBB5E0F1EC9D22D007298E5 /* Demo5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo5ViewController.h; sourceTree = "<group>"; };
+		2BBB5E101EC9D22D007298E5 /* Demo5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo5ViewController.m; sourceTree = "<group>"; };
 		2BC57D6D1D30DA680094953E /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
 		2BC57D6E1D30DA680094953E /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
 		2BC57D701D30DA6F0094953E /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				2BC57D771D30E54A0094953E /* Demo3ViewController.m */,
 				2BC57D791D311E6F0094953E /* Demo4ViewController.h */,
 				2BC57D7A1D311E6F0094953E /* Demo4ViewController.m */,
+				2BBB5E0F1EC9D22D007298E5 /* Demo5ViewController.h */,
+				2BBB5E101EC9D22D007298E5 /* Demo5ViewController.m */,
 			);
 			path = AppTestDemos;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC57D751D30E0B90094953E /* Demo2ViewController.m in Sources */,
+				2BBB5E111EC9D22D007298E5 /* Demo5ViewController.m in Sources */,
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				2BC57D6F1D30DA680094953E /* Demo1ViewController.m in Sources */,
 				2BC57D7B1D311E6F0094953E /* Demo4ViewController.m in Sources */,
